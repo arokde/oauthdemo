@@ -20,18 +20,6 @@ spring:
     oauth2:
       client:
         registration:
-          google:
-            client-id: 974388516169-h6q16qtj3nms75dvi8ch1auieusvp9a2.apps.googleusercontent.com
-            client-secret: O8s4T5tf8H2Opuporp5P0ndX
-          way2learnclient:
-              client-id: way2learnappclientid
-              client-secret: secret
-              client-name: Way2learn
-              scope: user_info,read
-              redirect-uri: https://localhost:8443/clientapp/login/oauth2/code/way2learnappclient
-              client-authentication-method: basic
-              authorization-grant-type: authorization_code
-              provider: way2learn-authserver-provider
           mvisdemoclient:
             client-id: mvisdemoclient
             client-secret: secret
@@ -42,11 +30,6 @@ spring:
             authorization-grant-type: authorization_code
             provider: mvisdemoclient-authserver-provider
         provider:
-          way2learn-authserver-provider:
-            token-uri: http://localhost:8081/auth/oauth/token
-            authorization-uri: http://localhost:8081/auth/oauth/authorize
-            user-info-uri: http://localhost:8081/auth/userinfo
-            user-name-attribute: username
           mvisdemoclient-authserver-provider:
             token-uri: http://localhost:8081/auth/oauth/token
             authorization-uri: http://localhost:8081/auth/oauth/authorize

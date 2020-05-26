@@ -28,17 +28,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     private AuthenticationSuccessHandler oauth2authSuccessHandler;
 
     protected void configure(HttpSecurity http) throws Exception {
-        /*
-         * http .authorizeRequests() .anyRequest().authenticated() .and() .httpBasic();
-         */
-
         http.authorizeRequests().antMatchers("/register", "/login", "/h2-console/**", "/mylogin", "/verify/**")
                 .permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login")
                 .defaultSuccessUrl("/hello", true).and().csrf().disable()
-
-                .logout().logoutUrl("/logout").logoutSuccessUrl("/login").deleteCookies("remember-me")
-                // TODO-1 Uncomment the below to add oauth2 configuration
-
+                 .logout().logoutUrl("/logout").logoutSuccessUrl("/login").deleteCookies("JSESSIONID","XSRF-TOKEN")
+                 .invalidateHttpSession(true)
                 .and().oauth2Login().loginPage("/login").successHandler(oauth2authSuccessHandler);
         ;
         http.headers().frameOptions().disable();

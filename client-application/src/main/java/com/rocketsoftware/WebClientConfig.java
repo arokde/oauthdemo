@@ -19,7 +19,6 @@ public class WebClientConfig {
 						clientRep,
 						authClientRepo
 						);
-		//oauth2.setDefaultClientRegistrationId("way2learnclient");
 		oauth2.setDefaultClientRegistrationId("mvisdemoclient");
 		return WebClient.builder().apply(oauth2.oauth2Configuration()).build();
 	}
